@@ -25,7 +25,9 @@ public class Asignatura {
     }
 	public void setPrueba(int cantPruebas)throws IOException {
 		for (int i = 0 ; i < cantPruebas ; i++) {
+			System.out.println("que nota tendra su prueba?");
 			int nota = Integer.parseInt(lectorr.readLine());
+			System.out.println("cuantas preguntas tiene la prueba?");
 			int cantp = Integer.parseInt(lectorr.readLine());
 			Prueba newPrueba = new Prueba(nota,cantp);
 			pruebas.add(cantPruebas,newPrueba);
@@ -47,5 +49,8 @@ public class Asignatura {
 		this.cantPruebas = cantPruebas;
 	}
 	
+	public void setCantPruebas(double cantPruebas) {
+		this.cantPruebas = (int)cantPruebas;
+	}
 
 }

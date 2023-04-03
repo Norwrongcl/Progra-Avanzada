@@ -22,6 +22,7 @@ public class Prueba {
 	public Prueba(int nota,int cantP) throws IOException{
 		this.nota = nota;
 		for (int i = 0 ; i < cantP ; i++) {
+			System.out.println("ingrese su pregunta  numero"+ i+1);
 			String pregunta = lector.readLine();
 			preguntasE.add(cantP,pregunta);
 			cantP++;
@@ -39,6 +40,10 @@ public class Prueba {
 	
 	public void setnota(int nota) {
 		this.nota = nota;
+	}
+	
+	public void setnota(double nota) {
+		this.nota = (int)nota;
 	}
 	
 	public String getpregunta(int numP) {
