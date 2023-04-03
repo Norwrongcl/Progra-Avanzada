@@ -19,8 +19,11 @@ public class Asignatura {
 		this.pruebas = new ArrayList<Prueba>();	
 		this.lectorr = new BufferedReader(new InputStreamReader(System.in));
 	}
-	
-	public void setprueba(int cantPruebas)throws IOException {
+    public Asignatura(String nombA,int cantP) throws IOException {
+    	setnombA(nombA);
+    	setPrueba(cantP);
+    }
+	public void setPrueba(int cantPruebas)throws IOException {
 		for (int i = 0 ; i < cantPruebas ; i++) {
 			int nota = Integer.parseInt(lectorr.readLine());
 			int cantp = Integer.parseInt(lectorr.readLine());
