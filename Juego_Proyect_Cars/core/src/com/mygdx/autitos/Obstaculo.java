@@ -45,7 +45,7 @@ public class Obstaculo extends Entidad {
 		    }
 	    	
 	    	else{
-	    		ferrari.setCol(col1());
+	    		ferrari.setCol(colicion1());
 	    		ferrari.dañar();
 		    }	
 	    	getSound().play();
@@ -64,7 +64,7 @@ public class Obstaculo extends Entidad {
 	    	}
 	    	
 	    	else{
-	    		ferrari.setCol(col2());
+	    		ferrari.setCol(colicion2());
 	    		ferrari.dañar();
 	    	}	
 	    	getSound().play();
@@ -82,7 +82,7 @@ public class Obstaculo extends Entidad {
     		}
     	
     		else{
-    			ferrari.setCol(col3());
+    			ferrari.setCol(colicion3());
     			ferrari.dañar();
     		}	
     		getSound().play();

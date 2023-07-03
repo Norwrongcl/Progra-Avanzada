@@ -13,8 +13,7 @@ public class ObsBuilder implements Builder{
 	
 	
 	public void setHitbox(Rectangle hb) {
-		this.hitbox = hb;
-		
+		this.hitbox = hb;	
 	}
 
 	public void setSound(Sound sd) {

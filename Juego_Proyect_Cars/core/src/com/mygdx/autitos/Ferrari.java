@@ -3,6 +3,7 @@ package com.mygdx.autitos;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
@@ -69,17 +70,17 @@ public class Ferrari extends Entidad implements MovementStrat{
 		   	hitbox.x = (800 / 2 - 64 / 2)-12;
 		   	hitbox.y = 20;
 		   	hitbox.width = 24;
-		   	hitbox.height = 97;
+		   	hitbox.height = 94;
 		   	Rectangle hitbox1 = new Rectangle();
 		   	hitbox1.x = (800 / 2 - 64 / 2)+12;
 		   	hitbox1.y = 20;
 		   	hitbox1.width = 24;
-		   	hitbox1.height = 97;
+		   	hitbox1.height = 94;
 		   	Rectangle hitbox2 = new Rectangle();
 		   	hitbox2.x = (800 / 2 - 64 / 2);
 		   	hitbox2.y = 117;
 		   	hitbox2.width = 24;
-		   	hitbox2.height = 2;
+		   	hitbox2.height = 5;
 		   	setHitbox(hitbox,hitbox1,hitbox2);
 	   }
 	   
@@ -91,23 +92,31 @@ public class Ferrari extends Entidad implements MovementStrat{
 	   }
 	   
 	   public void dibujar(SpriteBatch batch) {
-		   
+		 Sprite sprite = new Sprite(getSprite());  
 		 if (!herido)  
 		   batch.draw(getSprite(),(getHitboxF().x+12), getHitboxF().y);  
 		 
-		 else if(col==3){
-		   batch.draw(getSprite(), getHitboxF().x, getHitboxF().y+ MathUtils.random(-5,5));
-		   tiempoHerido--;
-		   if (tiempoHerido<=0) herido = false;
-		 }
-		 
-		 else if(col==1) {
-		   batch.draw(getSprite(), getHitboxF().x, getHitboxF().y+ MathUtils.random(-5,5));
+		 else if(col==1){
+		   for(int i=0;i<40;i++) {
+			   sprite.setPosition(getHitboxF().x, getHitboxF().y);
+			   sprite.setRotation(-i);
+			   sprite.draw(batch);
+		   }
 		   tiempoHerido--;
 		   if (tiempoHerido<=0) herido = false;
 		 }
 		 
 		 else if(col==2) {
+		   for(int i=0;i<40;i++) {
+			   sprite.setPosition(getHitboxF().x, getHitboxF().y);
+			   sprite.setRotation(i);
+			   sprite.draw(batch);
+		   }
+		   tiempoHerido--;
+		   if (tiempoHerido<=0) herido = false;
+		 }
+		 
+		 else if(col==3) {
 		   batch.draw(getSprite(), getHitboxF().x, getHitboxF().y+ MathUtils.random(-5,5));
 		   tiempoHerido--;
 	       if (tiempoHerido<=0) herido = false;
@@ -142,11 +151,11 @@ public class Ferrari extends Entidad implements MovementStrat{
 		   if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) 	hitbox2.x -= velx  * Gdx.graphics.getDeltaTime();
 		   if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) hitbox2.x += velx * Gdx.graphics.getDeltaTime();
 		   if(Gdx.input.isKeyPressed(Input.Keys.UP)) hitbox2.y += velx * Gdx.graphics.getDeltaTime();
-		   if(Gdx.input.isKeyPressed(Input.Keys.DOWN)) hitbox.y -= velx * Gdx.graphics.getDeltaTime();
+		   if(Gdx.input.isKeyPressed(Input.Keys.DOWN)) hitbox2.y -= velx * Gdx.graphics.getDeltaTime();
 		   
 		   // que no se salga de los bordes izq y der
 		   if(hitbox.x < 0) hitbox.x = 0; 
-		   if(hitbox.x > (800 - 64)-24) hitbox.x = (800 - 64)-24;
+		   if(hitbox.x > (800 - 64)-24) hitbox.x = (800 - 64)-24;	   
 		   if(hitbox.y < 0) hitbox.y = 0;
 		   if(hitbox.y > 800-402) hitbox.y = 800 - 402;
 		   

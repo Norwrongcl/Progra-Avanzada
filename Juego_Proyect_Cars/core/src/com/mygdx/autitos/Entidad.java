@@ -4,7 +4,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 
-public abstract class Entidad extends TipsCol {
+public abstract class Entidad implements TipsCol {
 	private Rectangle hitbox;
 	private Rectangle hitbox1;
 	private Rectangle hitbox2;
@@ -46,17 +46,15 @@ public abstract class Entidad extends TipsCol {
 		this.hitbox1 = hb1;
 		this.hitbox2 = hb2;
 	}
-	public int col1(){
-		
-		return colicion1();
+	public int colicion1() {
+		return 1;
 	}
-	public int col2(){
-		
-		return colicion2();
+	
+	public int colicion2() {
+		return 2;
 	}
-	public int col3(){
-		
-		return colicion3();
+	public int colicion3() {
+		return 3;
 	}
 	
 }
